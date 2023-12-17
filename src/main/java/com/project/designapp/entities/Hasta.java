@@ -1,9 +1,10 @@
 package com.project.designapp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,8 +20,14 @@ public class Hasta {
 	int telNo;
 	String eMail;
 	String sifre;
-	
-	
+
+	@ManyToMany
+	@JoinTable(
+			name = "hasta_egzersiz",
+			joinColumns = @JoinColumn(name = "hasta_id"),
+			inverseJoinColumns = @JoinColumn(name = "egzersiz_id")
+	)
+	private List<Egzersiz> egzersizler = new ArrayList<>();
 	
 	//Getter ve Setter metotları
 	public Long getId() {

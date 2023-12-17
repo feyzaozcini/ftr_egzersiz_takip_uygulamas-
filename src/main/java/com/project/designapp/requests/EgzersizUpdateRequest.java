@@ -18,6 +18,6 @@ public class EgzersizUpdateRequest {
 	public void setEgzersizTarifi(String egzersizTarifi) {
 		this.egzersizTarifi = egzersizTarifi;
 	}
-	
-	
+
+
 }

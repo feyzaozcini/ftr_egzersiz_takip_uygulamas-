@@ -19,7 +19,7 @@ import com.project.designapp.requests.RandevuUpdateRequest;
 import com.project.designapp.services.RandevuService;
 
 @RestController
-@RequestMapping("/randevular")
+@RequestMapping("/api/v1/randevular")
 public class RandevuController {
 	RandevuService randevuService;
 

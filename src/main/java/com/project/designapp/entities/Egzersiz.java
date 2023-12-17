@@ -1,13 +1,11 @@
 package com.project.designapp.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,13 +15,19 @@ import lombok.Data;
 public class Egzersiz {
 	@Id
 	Long id;
-	@ManyToOne(fetch=FetchType.LAZY) 
-	@JoinColumn(name="hasta_id",nullable=false)
-	@JsonIgnore
-	Hasta hasta;
-	
-	
-	
+
+
+	@ManyToMany(mappedBy = "egzersizler")
+	private List<Hasta> hastalar = new ArrayList<>();
+
+	public List<Hasta> getHastalar() {
+		return hastalar;
+	}
+
+	public void setHastalar(List<Hasta> hastalar) {
+		this.hastalar = hastalar;
+	}
+
 	String egzersizAdi;
 	public Long getId() {
 		return id;
@@ -31,12 +35,7 @@ public class Egzersiz {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Hasta getHasta() {
-		return hasta;
-	}
-	public void setHasta(Hasta hasta) {
-		this.hasta = hasta;
-	}
+
 	public String getEgzersizAdi() {
 		return egzersizAdi;
 	}

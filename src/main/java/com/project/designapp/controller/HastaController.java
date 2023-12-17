@@ -16,7 +16,7 @@ import com.project.designapp.services.HastaService;
 
 
 @RestController
-@RequestMapping("/hastalar")
+@RequestMapping("/api/v1/hastalar")
 public class HastaController {
 	private HastaService hastaService;
 	

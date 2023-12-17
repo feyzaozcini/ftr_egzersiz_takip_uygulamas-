@@ -8,6 +8,6 @@ import com.project.designapp.entities.Egzersiz;
 
 public interface EgzersizRepository extends JpaRepository<Egzersiz, Long> {
 
-	List<Egzersiz> findByHastaId(Long hastaId);
+
 
 }

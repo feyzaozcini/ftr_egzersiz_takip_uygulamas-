@@ -13,35 +13,30 @@ import com.project.designapp.requests.EgzersizUpdateRequest;
 
 @Service
 public class EgzersizService {
-	
+
 	EgzersizRepository egzersizRepository;
 	private HastaService hastaService;
+
+
+	public List<Egzersiz> getAllEgzersiz() {
+		return egzersizRepository.findAll();
+	}
 
 	public EgzersizService(EgzersizRepository egzersizRepository, HastaService hastaService) {
 		this.egzersizRepository = egzersizRepository;
 		this.hastaService=hastaService;
 	}
 
-	public List<Egzersiz> getAllEgzersiz(Optional<Long> hastaId) {
-		if(hastaId.isPresent())
-			return egzersizRepository.findByHastaId(hastaId.get());
-		return egzersizRepository.findAll();
-	}
-	
 	public Egzersiz getOneEgzersiz(Long egzersizId) {
 		return egzersizRepository.findById(egzersizId).orElse(null);
 	}
 
 	public Egzersiz createEgzersiz(EgzersizCreateRequest newEgzersizRequest) {
-		
-		Hasta hasta=hastaService.getOneHasta(newEgzersizRequest.getHastaId());
-		if(hasta==null)
-			return null;
+
 		Egzersiz toSave=new Egzersiz();
 		toSave.setId(newEgzersizRequest.getId());
 		toSave.setEgzersizAdi(newEgzersizRequest.getEgzersizAdi());
 		toSave.setEgzersizTarifi(newEgzersizRequest.getEgzersizTarifi());
-		toSave.setHasta(hasta);
 		return egzersizRepository.save(toSave);
 	}
 
@@ -54,16 +49,12 @@ public class EgzersizService {
 			egzersizRepository.save(toUpdate);
 			return toUpdate;
 		}
-		
+
 		return null;
 	}
 
 	public void deleteOneEgzersiz(Long egzersizId) {
 		egzersizRepository.deleteById(egzersizId);
 	}
-
-	
-
-	
 
 }

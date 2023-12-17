@@ -15,7 +15,7 @@ import com.project.designapp.entities.Doktor;
 import com.project.designapp.services.DoktorService;
 
 @RestController
-@RequestMapping("/doktorlar")
+@RequestMapping("/api/v1/doktorlar")
 public class DoktorController {
 	 public DoktorService doktorService;
 	 

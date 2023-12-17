@@ -7,8 +7,8 @@ public class EgzersizCreateRequest {
 	Long id;
 	String egzersizAdi;
 	String egzersizTarifi;
-	Long hastaId;
-	
+
+
 	public Long getId() {
 		return id;
 	}
@@ -26,11 +26,5 @@ public class EgzersizCreateRequest {
 	}
 	public void setEgzersizTarifi(String egzersizTarifi) {
 		this.egzersizTarifi = egzersizTarifi;
-	}
-	public Long getHastaId() {
-		return hastaId;
-	}
-	public void setHastaId(Long hastaId) {
-		this.hastaId = hastaId;
 	}
 }

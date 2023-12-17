@@ -19,7 +19,7 @@ import com.project.designapp.requests.FaturaUpdateRequest;
 import com.project.designapp.services.FaturaService;
 
 @RestController
-@RequestMapping("/faturalar")
+@RequestMapping("/api/v1/faturalar")
 public class FaturaController {
 	FaturaService faturaService;
 
