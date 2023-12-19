@@ -57,4 +57,7 @@ public class EgzersizService {
 		egzersizRepository.deleteById(egzersizId);
 	}
 
+    public List<Egzersiz> getAllEgzersizAdmin() {
+		return egzersizRepository.findAll();
+    }
 }

@@ -63,4 +63,7 @@ public class FaturaService {
 		faturaRepository.deleteById(faturaId);
 	}
 
+	public List<Fatura> getAllFaturalar() {
+		return faturaRepository.findAll();
+	}
 }

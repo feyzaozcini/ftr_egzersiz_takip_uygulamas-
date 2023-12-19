@@ -36,12 +36,10 @@ public class SecurityConfiguration {
                         .permitAll()
                         .requestMatchers("/api/v1/admin").hasAnyAuthority(Role.ADMIN.name())
                         .requestMatchers("/api/v1/user").hasAnyAuthority(Role.USER.name())
-                        .requestMatchers("/api/v1/egzersizler").hasAnyAuthority(Role.USER.name())
-                        .requestMatchers("/api/v1/doktorlar").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/egzersizler/user").hasAnyAuthority(Role.USER.name())
                         .requestMatchers("/api/v1/egzersizler").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("/api/v1/faturalar").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("/api/v1/randevular").hasAnyAuthority(Role.ADMIN.name())
-                        .requestMatchers("/api/v1/hastalar").hasAnyAuthority(Role.ADMIN.name())
+                        .requestMatchers("/api/v1/**").hasAnyAuthority(Role.ADMIN.name())
+
                         .anyRequest().authenticated() )
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(

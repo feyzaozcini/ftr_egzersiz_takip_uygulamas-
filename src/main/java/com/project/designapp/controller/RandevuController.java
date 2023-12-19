@@ -3,6 +3,7 @@ package com.project.designapp.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.project.designapp.entities.Hasta;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,14 +27,19 @@ public class RandevuController {
 	public RandevuController(RandevuService randevuService) {
 		this.randevuService = randevuService;
 	}
+
+	@GetMapping
+	public List<Randevu> getAllRandevu(){
+		return randevuService.getAllRandevu();
+	}
 	//Hastanın randevularını getirmek için
-	@GetMapping ("/hastaRandevu")
+	@GetMapping("/{hastaId}")
     public List<Randevu> getAllHastaRandevu(@RequestParam Optional<Long> hastaId){
 	    return randevuService.getAllHastaRandevu(hastaId);
     }
 	
 	//Doktorun randevularını getirmek için
-	@GetMapping("/doktorRandevu")
+	@GetMapping("/{doktorId}")
     public List<Randevu> getAllDoktorRandevu(@RequestParam Optional<Long> doktorId){
 	    return randevuService.getAllDoktorRandevu(doktorId);
     }

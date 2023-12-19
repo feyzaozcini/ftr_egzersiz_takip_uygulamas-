@@ -85,4 +85,7 @@ public class RandevuService {
 		randevuRepository.deleteById(randevuId);
 	}
 
+	public List<Randevu> getAllRandevu() {
+		return randevuRepository.findAll();
+	}
 }

@@ -3,6 +3,7 @@ package com.project.designapp.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.project.designapp.entities.Hasta;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +27,13 @@ public class FaturaController {
 	public FaturaController(FaturaService faturaService) {
 		this.faturaService = faturaService;
 	}
+
+	@GetMapping
+	public List<Fatura> getAllFaturalar(){
+		return faturaService.getAllFaturalar();
+	}
 	
-	@GetMapping 
+	@GetMapping("/{hastaId}")
     public List<Fatura> getAllFatura(@RequestParam Optional<Long> hastaId){
 	    return faturaService.getAllFatura(hastaId);
     }

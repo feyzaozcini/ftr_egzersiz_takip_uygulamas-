@@ -32,11 +32,13 @@ public class EgzersizController {
 		this.egzersizService=egzersizService;
 	}
 
-	@GetMapping
+
+	@GetMapping("/user")
 	public List<Egzersiz> getAllEgzersizler(@AuthenticationPrincipal UserDetails userDetails){
 		if (userDetails != null && userDetails.getAuthorities().contains(new SimpleGrantedAuthority(Role.USER.name()))) {
 			return egzersizService.getAllEgzersiz();
-		} else {
+		}
+		else {
 			throw new AccessDeniedException("Access denied");
 		}
 
