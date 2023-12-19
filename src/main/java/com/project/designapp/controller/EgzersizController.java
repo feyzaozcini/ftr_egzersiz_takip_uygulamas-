@@ -32,6 +32,12 @@ public class EgzersizController {
 		this.egzersizService=egzersizService;
 	}
 
+	@GetMapping("/admin")
+	public List<Egzersiz> getAllEgzersizler(){
+
+		return egzersizService.getAllEgzersiz();
+
+	}
 
 	@GetMapping("/user")
 	public List<Egzersiz> getAllEgzersizler(@AuthenticationPrincipal UserDetails userDetails){
