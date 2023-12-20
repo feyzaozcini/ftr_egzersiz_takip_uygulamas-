@@ -28,6 +28,7 @@ import com.project.designapp.services.EgzersizService;
 public class EgzersizController {
 	EgzersizService egzersizService;
 
+
 	public EgzersizController(EgzersizService egzersizService) {
 		this.egzersizService=egzersizService;
 	}
