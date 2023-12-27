@@ -10,4 +10,8 @@ public class JwtAuthenticationResponse {
 
     private String refreshToken;
 
+    private String email;
+
+    private String firstname;
+
 }
